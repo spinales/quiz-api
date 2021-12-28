@@ -6,10 +6,8 @@ El proyecto final hacer un Quiz.
 
 - [x] Definir base de datos
 - Crear modelos.
-    - [ ] Question.
-    - [ ] Answer.
-    - [ ] Student.
-    - [ ] Exam.
-    - [ ] Teacher.
+    - [x] Question.
+    - [x] Answer.
+    - [x] User.
 - Handlers.
 - Metodos de la bd.
