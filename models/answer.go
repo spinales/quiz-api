@@ -7,3 +7,10 @@ type Answer struct {
 	Content string
 	Score   uint
 }
+
+type AnswerService interface {
+	GetAnswer(id uint) (*Answer, error)
+	GetAnswers() (*[]Answer, error)
+	SaveAnswer(a *Answer) (*Answer, error)
+	DeleteAnswer(id uint) error
+}
