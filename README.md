@@ -5,6 +5,7 @@ El proyecto final hacer un Quiz.
 ## Cosas por hacer(Todo)
 
 - Definir base de datos
+- Establecer relaciones
 - Crear modelos.
     - [x] Question.
     - [x] Answer.
@@ -30,8 +31,9 @@ El proyecto final hacer un Quiz.
         - [ ] Jugar una partida.(Faltar por definir mas extendido)
         - [ ] Registrar puntuaciones
 - Metodos de la bd.
-    - [ ] Crud pregunta.
-    - [ ] Crud Respuesta.
-    - [ ] Agregar usuario
-    - [ ] Consultar usuario.
+    - [x] Crud pregunta.
+    - [x] Crud Respuesta.
+    - [x] Agregar usuario
+    - [x] Consultar usuario.
+    - [ ] Consultar respuestas por id pregunta
 
