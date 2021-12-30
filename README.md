@@ -4,8 +4,8 @@ El proyecto final hacer un Quiz.
 
 ## Cosas por hacer(Todo)
 
-- Definir base de datos
-- Establecer relaciones
+- [x] Definir base de datos
+- [ ] Establecer relaciones
 - Crear modelos.
     - [x] Question.
     - [x] Answer.
