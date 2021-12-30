@@ -4,8 +4,9 @@ import "gorm.io/gorm"
 
 type Answer struct {
 	gorm.Model
-	Content string
-	Score   uint
+	Content  string
+	Score    uint
+	ImageUrl string
 }
 
 type AnswerService interface {

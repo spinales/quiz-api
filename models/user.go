@@ -7,6 +7,7 @@ type User struct {
 	Username string
 	Email    string
 	Password string
+	Role     string
 }
 
 // UserService represent all of methods of the user structure.
