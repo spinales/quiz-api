@@ -1,7 +1,6 @@
 package token
 
 import (
-	"log"
 	"testing"
 	"time"
 
@@ -22,7 +21,6 @@ func TestPasetoMaker(t *testing.T) {
 	expiredAt := issuedAt.Add(duration)
 
 	token, err := maker.CreateToken(username, duration)
-	log.Println(token)
 	require.NoError(t, err)
 	require.NotEmpty(t, token)
 
