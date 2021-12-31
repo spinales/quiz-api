@@ -24,6 +24,7 @@ require (
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.4 // indirect
 	github.com/joho/godotenv v1.4.0 // indirect
+	github.com/mattn/go-sqlite3 v1.14.9 // indirect
 	github.com/o1egl/paseto v1.0.0 // indirect
 	github.com/pioz/faker v1.7.2 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
@@ -34,4 +35,5 @@ require (
 	golang.org/x/text v0.3.7 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c // indirect
 	gorm.io/driver/postgres v1.2.3 // indirect
+	gorm.io/driver/sqlite v1.2.6 // indirect
 )
