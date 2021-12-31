@@ -22,6 +22,12 @@ func (s *QuestionService) GetQuestions() (*[]models.Question, error) {
 }
 
 func (s *QuestionService) SaveQuestion(q *models.Question) (*models.Question, error) {
+	s.DB.Create(&q)
+	return q, nil
+}
+
+func (s *QuestionService) UpdateQuestion(q *models.Question, id uint) (*models.Question, error) {
+	q.ID = id
 	s.DB.Save(&q)
 	return q, nil
 }
