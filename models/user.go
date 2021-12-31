@@ -14,4 +14,5 @@ type User struct {
 type UserService interface {
 	UserByUsername(username string) (*User, error)
 	AddUser(u *User) (*User, error)
+	CheckUserOrEmail(username, email string) (*User, error)
 }
