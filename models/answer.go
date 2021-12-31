@@ -13,5 +13,6 @@ type AnswerService interface {
 	GetAnswer(id uint) (*Answer, error)
 	GetAnswers() (*[]Answer, error)
 	SaveAnswer(a *Answer) (*Answer, error)
+	UpdateAnswer(a *Answer, id uint) (*Answer, error)
 	DeleteAnswer(id uint) error
 }

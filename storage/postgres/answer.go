@@ -22,6 +22,12 @@ func (s *AnswerService) GetAnswers() (*[]models.Answer, error) {
 }
 
 func (s *AnswerService) SaveAnswer(a *models.Answer) (*models.Answer, error) {
+	s.DB.Create(&a)
+	return a, nil
+}
+
+func (s *AnswerService) UpdateAnswer(a *models.Answer, id uint) (*models.Answer, error) {
+	a.ID = id
 	s.DB.Save(&a)
 	return a, nil
 }
