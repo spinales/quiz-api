@@ -1,17 +1,38 @@
 package main
 
 import (
-	"net/http"
+	"fmt"
+	"log"
 
-	"github.com/go-chi/chi/v5"
-	"github.com/go-chi/chi/v5/middleware"
+	"github.com/spinales/quiz-api/api"
+	"github.com/spinales/quiz-api/models"
+	"github.com/spinales/quiz-api/util"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 )
 
 func main() {
-	r := chi.NewRouter()
-	r.Use(middleware.Logger)
-	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello World!"))
-	})
-	http.ListenAndServe(":3000", r)
+	config, err := util.NewConfig()
+	if err != nil {
+		log.Fatalln("Cannot load config file(.env): ", err)
+	}
+
+	dsc := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable",
+		config.Host, config.User, config.Password, config.DBName, config.Port)
+	db, err := gorm.Open(postgres.Open(dsc), &gorm.Config{})
+	if err != nil {
+		log.Fatalln("Cannot connect to database: ", err)
+	}
+
+	db.AutoMigrate(&models.User{}, &models.Question{}, &models.Answer{})
+
+	server, err := api.NewServer(db, &config)
+	if err != nil {
+		log.Fatalln("Cannot create server: ", err)
+	}
+
+	err = server.Start(config.ServerAddress)
+	if err != nil {
+		log.Fatalln("Cannot start server: ", err)
+	}
 }
