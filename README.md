@@ -5,19 +5,19 @@ El proyecto final hacer un Quiz.
 ## Cosas por hacer(Todo)
 
 - [x] Definir base de datos
-- [ ] Establecer relaciones
+- [x] Establecer relaciones
 - Crear modelos.
     - [x] Question.
     - [x] Answer.
     - [x] User.
     - [ ] Registro de puntuacion.
 - Handlers.
-    - [ ] Registrar nuevo usuario.
-        - [ ] Metodo en la para agregar un nuevo usuario en la bd.
-        - [ ] Encryptar password.
+    - [x] Registrar nuevo usuario.
+        - [x] Metodo en la para agregar un nuevo usuario en la bd.
+        - [x] Encryptar password.
         - [ ] Validar Email.
-    - [ ] Login
-        - [ ] Validar password.
+    - [x] Login
+        - [x] Validar password.
     - [ ] Rol de administrador.
         - [ ] Agregar pregunta.
         - [ ] Actualizar pregunta.
