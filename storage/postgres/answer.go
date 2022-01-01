@@ -36,3 +36,9 @@ func (s *AnswerService) DeleteAnswer(id uint) error {
 	s.DB.Delete(&models.Answer{}, id)
 	return nil
 }
+
+func (s *AnswerService) AnswersByQuestion(questionId uint) (*[]models.Answer, error) {
+	var ans []models.Answer
+	s.DB.Where(&models.Answer{QuestionID: questionId}).Find(&ans)
+	return &ans, nil
+}
