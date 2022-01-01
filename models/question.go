@@ -4,7 +4,9 @@ import "gorm.io/gorm"
 
 type Question struct {
 	gorm.Model
-	Content string
+	Content  string
+	ImageUrl string
+	Answers  []Answer
 }
 
 type QuestionService interface {

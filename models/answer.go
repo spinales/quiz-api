@@ -4,9 +4,9 @@ import "gorm.io/gorm"
 
 type Answer struct {
 	gorm.Model
-	Content  string
-	Score    uint
-	ImageUrl string
+	Content    string
+	Score      uint
+	QuestionID uint
 }
 
 type AnswerService interface {
@@ -15,4 +15,5 @@ type AnswerService interface {
 	SaveAnswer(a *Answer) (*Answer, error)
 	UpdateAnswer(a *Answer, id uint) (*Answer, error)
 	DeleteAnswer(id uint) error
+	AnswersByQuestion(questionId uint) (*[]Answer, error)
 }
