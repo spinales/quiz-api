@@ -37,4 +37,7 @@ El proyecto final hacer un Quiz.
     - [x] Agregar usuario
     - [x] Consultar usuario.
     - [x] Consultar respuestas por id pregunta
+- [ ] Logger
+- [ ] Documentation
+- [ ] Final readme version
 
