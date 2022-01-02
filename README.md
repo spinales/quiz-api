@@ -21,7 +21,7 @@ El proyecto final hacer un Quiz.
         - [x] Validar password.
     - [x] Rol de administrador.
         - [x] Agregar pregunta.
-        - [ ] Actualizar pregunta.
+        - [x] Actualizar pregunta.
         - [ ] Eliminar pregunta.
         - [ ] Visualizar preguntas.
         - [ ] Agregar respuesta.
