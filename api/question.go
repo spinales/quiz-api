@@ -52,3 +52,26 @@ func (s *Server) DeleteQuestion(w http.ResponseWriter, r *http.Request) {
 
 	util.RespondwithJSON(w, http.StatusOK, nil)
 }
+
+func (s *Server) GetQuestion(w http.ResponseWriter, r *http.Request) {
+	id, err := strconv.ParseUint(chi.URLParam(r, "id"), 10, 64)
+	if err != nil {
+		util.RespondWithError(w, http.StatusOK, "Cannot parse this param, "+err.Error())
+	}
+
+	q, err := s.service.QuestionService.GetQuestion(uint(id))
+	if err != nil {
+		util.RespondWithError(w, http.StatusOK, err.Error())
+	}
+
+	util.RespondwithJSON(w, http.StatusOK, q)
+}
+
+func (s *Server) GetQuestions(w http.ResponseWriter, r *http.Request) {
+	qs, err := s.service.QuestionService.GetQuestions()
+	if err != nil {
+		util.RespondWithError(w, http.StatusOK, err.Error())
+	}
+
+	util.RespondwithJSON(w, http.StatusOK, qs)
+}

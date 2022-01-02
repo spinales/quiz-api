@@ -23,7 +23,7 @@ El proyecto final hacer un Quiz.
         - [x] Agregar pregunta.
         - [x] Actualizar pregunta.
         - [x] Eliminar pregunta.
-        - [ ] Visualizar preguntas.
+        - [x] Visualizar preguntas.
         - [ ] Agregar respuesta.
         - [ ] Actualizar respuesta.
         - [ ] Eliminar respuesta.
