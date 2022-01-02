@@ -20,7 +20,7 @@ El proyecto final hacer un Quiz.
     - [x] Login
         - [x] Validar password.
     - [x] Rol de administrador.
-        - [ ] Agregar pregunta.
+        - [x] Agregar pregunta.
         - [ ] Actualizar pregunta.
         - [ ] Eliminar pregunta.
         - [ ] Visualizar preguntas.
