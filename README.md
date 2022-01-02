@@ -24,10 +24,10 @@ El proyecto final hacer un Quiz.
         - [x] Actualizar pregunta.
         - [x] Eliminar pregunta.
         - [x] Visualizar preguntas.
-        - [ ] Agregar respuesta.
-        - [ ] Actualizar respuesta.
-        - [ ] Eliminar respuesta.
-        - [ ] Visualizar respuesta.
+        - [x] Agregar respuesta.
+        - [x] Actualizar respuesta.
+        - [x] Eliminar respuesta.
+        - [x] Visualizar respuesta.
     - Rol de jugador
         - [ ] Jugar una partida.(Faltar por definir mas extendido)
         - [ ] Registrar puntuaciones
