@@ -7,16 +7,21 @@ import (
 
 	"github.com/spinales/quiz-api/api"
 	"github.com/spinales/quiz-api/models"
+	storage "github.com/spinales/quiz-api/storage/postgres"
 	"github.com/spinales/quiz-api/util"
 	"gorm.io/driver/postgres"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
-var local bool
+var (
+	local bool
+	fake  bool
+)
 
 func init() {
 	flag.BoolVar(&local, "local", false, "Run the server in local mode, run without database server using sqlite.")
+	flag.BoolVar(&fake, "fake", false, "Add fake data on dabatase.")
 	flag.Parse()
 }
 
@@ -41,6 +46,10 @@ func main() {
 	}
 
 	db.AutoMigrate(&models.User{}, &models.Question{}, &models.Answer{})
+
+	if fake {
+		storage.FakeData(db)
+	}
 
 	server, err := api.NewServer(db, &config)
 	if err != nil {
