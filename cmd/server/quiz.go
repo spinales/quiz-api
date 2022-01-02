@@ -34,12 +34,12 @@ func main() {
 		dsc := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable",
 			config.Host, config.User, config.Password, config.DBName, config.Port)
 		db, err = gorm.Open(postgres.Open(dsc), &gorm.Config{})
+		db.Exec(`CREATE TYPE role AS ENUM ('admin','player');`)
 	}
 	if err != nil {
 		log.Fatalln("Cannot connect to database: ", err)
 	}
 
-	db.Exec(`CREATE TYPE role AS ENUM ('admin','player');`)
 	db.AutoMigrate(&models.User{}, &models.Question{}, &models.Answer{})
 
 	server, err := api.NewServer(db, &config)
