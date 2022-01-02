@@ -22,7 +22,7 @@ El proyecto final hacer un Quiz.
     - [x] Rol de administrador.
         - [x] Agregar pregunta.
         - [x] Actualizar pregunta.
-        - [ ] Eliminar pregunta.
+        - [x] Eliminar pregunta.
         - [ ] Visualizar preguntas.
         - [ ] Agregar respuesta.
         - [ ] Actualizar respuesta.

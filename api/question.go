@@ -38,3 +38,17 @@ func (s *Server) UpdateQuestion(w http.ResponseWriter, r *http.Request) {
 
 	util.RespondwithJSON(w, http.StatusOK, q)
 }
+
+func (s *Server) DeleteQuestion(w http.ResponseWriter, r *http.Request) {
+	id, err := strconv.ParseUint(chi.URLParam(r, "id"), 10, 64)
+	if err != nil {
+		util.RespondWithError(w, http.StatusOK, "Cannot parse this param, "+err.Error())
+	}
+
+	err = s.service.QuestionService.DeleteQuestion(uint(id))
+	if err != nil {
+		util.RespondWithError(w, http.StatusOK, err.Error())
+	}
+
+	util.RespondwithJSON(w, http.StatusOK, nil)
+}
