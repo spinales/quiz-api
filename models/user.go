@@ -2,12 +2,19 @@ package models
 
 import "gorm.io/gorm"
 
+type role string
+
+const (
+	Admin  role = "admin"
+	Player role = "player"
+)
+
 type User struct {
 	gorm.Model
 	Username string
 	Email    string
 	Password string
-	Role     string
+	Role     role `sql:"type:role"`
 }
 
 // UserService represent all of methods of the user structure.

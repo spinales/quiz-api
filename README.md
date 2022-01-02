@@ -12,13 +12,14 @@ El proyecto final hacer un Quiz.
     - [x] User.
     - [ ] Registro de puntuacion.
 - Handlers.
+    - [ ] Middleware
     - [x] Registrar nuevo usuario.
         - [x] Metodo en la para agregar un nuevo usuario en la bd.
         - [x] Encryptar password.
         - [ ] Validar Email.
     - [x] Login
         - [x] Validar password.
-    - [ ] Rol de administrador.
+    - [x] Rol de administrador.
         - [ ] Agregar pregunta.
         - [ ] Actualizar pregunta.
         - [ ] Eliminar pregunta.
@@ -35,5 +36,5 @@ El proyecto final hacer un Quiz.
     - [x] Crud Respuesta.
     - [x] Agregar usuario
     - [x] Consultar usuario.
-    - [ ] Consultar respuestas por id pregunta
+    - [x] Consultar respuestas por id pregunta
 

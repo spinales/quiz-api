@@ -39,6 +39,7 @@ func main() {
 		log.Fatalln("Cannot connect to database: ", err)
 	}
 
+	db.Exec(`CREATE TYPE role AS ENUM ('admin','player');`)
 	db.AutoMigrate(&models.User{}, &models.Question{}, &models.Answer{})
 
 	server, err := api.NewServer(db, &config)
