@@ -58,15 +58,26 @@ func (server *Server) setupRouter() {
 	router.Post("/login", server.login)
 	router.Post("/register", server.register)
 
-	// router.POST("/users", server.createUser)
-	// router.POST("/users/login", server.loginUser)
-
-	// authRoutes := router.Group("/").Use(authMiddleware(server.tokenMaker))
-	// authRoutes.POST("/accounts", server.createAccount)
-	// authRoutes.GET("/accounts/:id", server.getAccount)
-	// authRoutes.GET("/accounts", server.listAccounts)
-
-	// authRoutes.POST("/transfers", server.createTransfer)
+	router.Route("/api", func(r chi.Router) {
+		r.Route("/question", func(r chi.Router) {
+			r.Get("/", server.GetQuestions)
+			r.Post("/", server.AddQuestion)
+			r.Route("/{id:^[0-9]}", func(r chi.Router) {
+				r.Get("/", server.GetQuestion)
+				r.Delete("/", server.DeleteQuestion)
+				r.Put("/", server.UpdateQuestion)
+			})
+		})
+		r.Route("/answer", func(r chi.Router) {
+			r.Get("/", server.GetAnswers)
+			r.Post("/", server.AddAnswer)
+			r.Route("/{id:^[0-9]}", func(r chi.Router) {
+				r.Get("/", server.GetAnswer)
+				r.Delete("/", server.DeleteAnswer)
+				r.Put("/", server.UpdateAnswer)
+			})
+		})
+	})
 
 	server.router = router
 }
