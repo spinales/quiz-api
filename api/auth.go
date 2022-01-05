@@ -49,6 +49,12 @@ func (s *Server) register(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	_, err := util.ValidateEmail(req.Email)
+	if err != nil {
+		util.RespondWithError(w, http.StatusOK, err.Error())
+		return
+	}
+
 	hashPassword, err := util.HashPassword(req.Password)
 	if err != nil {
 		util.RespondWithError(w, http.StatusOK, err.Error())

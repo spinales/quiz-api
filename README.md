@@ -16,7 +16,7 @@ El proyecto final hacer un Quiz.
     - [x] Registrar nuevo usuario.
         - [x] Metodo en la para agregar un nuevo usuario en la bd.
         - [x] Encryptar password.
-        - [ ] Validar Email.
+        - [x] Validar Email.
     - [x] Login
         - [x] Validar password.
     - [x] Rol de administrador.
