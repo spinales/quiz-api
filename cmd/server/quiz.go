@@ -45,7 +45,7 @@ func main() {
 		log.Fatalln("Cannot connect to database: ", err)
 	}
 
-	db.AutoMigrate(&models.User{}, &models.Question{}, &models.Answer{})
+	db.AutoMigrate(&models.User{}, &models.Question{}, &models.Answer{}, &models.Score{}, &models.ScoreRecord{})
 
 	if fake {
 		storage.FakeData(db)

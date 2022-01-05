@@ -5,6 +5,7 @@ import "github.com/google/uuid"
 type ScoreRecord struct {
 	ScoreID     uuid.UUID
 	UserID      uint
+	User        User `gorm:"-"`
 	Punctuation uint
 	QuestionID  uint
 	AnswerID    uint
@@ -16,7 +17,8 @@ type ScoreRecordService interface {
 }
 
 type Score struct {
-	userID     uint
+	UserID     uint
+	User       User `gorm:"-"`
 	ScoreID    uuid.UUID
 	TotalScore uint
 }
