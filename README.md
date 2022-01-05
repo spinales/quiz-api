@@ -10,7 +10,7 @@ El proyecto final hacer un Quiz.
     - [x] Question.
     - [x] Answer.
     - [x] User.
-    - [ ] Registro de puntuacion.
+    - [x] Registro de puntuacion.
 - Handlers.
     - [ ] Middleware
     - [x] Registrar nuevo usuario.
