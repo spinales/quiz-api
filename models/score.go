@@ -1,8 +1,12 @@
 package models
 
-import "github.com/google/uuid"
+import (
+	"github.com/google/uuid"
+	"gorm.io/gorm"
+)
 
 type ScoreRecord struct {
+	gorm.Model
 	ScoreID     uuid.UUID
 	UserID      uint
 	User        User `gorm:"-"`
@@ -17,6 +21,7 @@ type ScoreRecordService interface {
 }
 
 type Score struct {
+	gorm.Model
 	UserID     uint
 	User       User `gorm:"-"`
 	ScoreID    uuid.UUID
