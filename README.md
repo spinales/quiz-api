@@ -12,7 +12,7 @@ El proyecto final hacer un Quiz.
     - [x] User.
     - [x] Registro de puntuacion.
 - Handlers.
-    - [ ] Middleware
+    - [x] Middleware
     - [x] Registrar nuevo usuario.
         - [x] Metodo en la para agregar un nuevo usuario en la bd.
         - [x] Encryptar password.

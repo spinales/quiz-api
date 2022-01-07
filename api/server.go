@@ -59,6 +59,8 @@ func (server *Server) setupRouter() {
 	router.Post("/register", server.register)
 
 	router.Route("/api", func(r chi.Router) {
+		// r.Use(authMiddleware2(r, server.tokenMaker))
+		r.Use(server.authMiddleware2)
 		r.Route("/question", func(r chi.Router) {
 			r.Get("/", server.GetQuestions)
 			r.Post("/", server.AddQuestion)
