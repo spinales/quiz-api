@@ -7,9 +7,11 @@ import (
 
 // service represent all of the dependency required for the app
 type service struct {
-	UserService     *postgres.UserService
-	AnswerService   *postgres.AnswerService
-	QuestionService *postgres.QuestionService
+	UserService        *postgres.UserService
+	AnswerService      *postgres.AnswerService
+	QuestionService    *postgres.QuestionService
+	ScoreService       *postgres.ScoreService
+	ScoreRecordService *postgres.ScoreRecordService
 }
 
 // NewService create new service
