@@ -29,8 +29,8 @@ El proyecto final hacer un Quiz.
         - [x] Eliminar respuesta.
         - [x] Visualizar respuesta.
     - Rol de jugador
-        - [ ] Jugar una partida. Del front me enviaran cada ID de la pregunta, con el ID de la respuesta que selecciono el usuario, y el valor en puntos de la respuesta.
-        - [ ] Registrar puntuaciones, registro la puntuacion como un todo, Sumo todos los puntos, con el id del usuario y un id unico.
+        - [x] Jugar una partida. Del front me enviaran un arreglo con cada ID de la pregunta, con el ID de la respuesta que selecciono el usuario, y el valor en puntos de la respuesta.
+        - [x] Registrar puntuaciones, registro la puntuacion como un todo, Sumo todos los puntos, con el id del usuario y un id unico.
 - Metodos de la bd.
     - [x] Crud pregunta.
     - [x] Crud Respuesta.
