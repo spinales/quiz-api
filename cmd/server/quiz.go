@@ -10,7 +10,6 @@ import (
 	storage "github.com/spinales/quiz-api/storage/postgres"
 	"github.com/spinales/quiz-api/util"
 	"gorm.io/driver/postgres"
-	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
@@ -34,9 +33,9 @@ func main() {
 	}
 
 	if local {
-		db, err = gorm.Open(sqlite.Open(":memory:"))
+		// db, err = gorm.Open(sqlite.Open(":memory:"))
 	} else {
-		dsc := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable",
+		dsc := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s",
 			config.Host, config.User, config.Password, config.DBName, config.Port)
 		db, err = gorm.Open(postgres.Open(dsc), &gorm.Config{})
 		db.Exec(`CREATE TYPE role AS ENUM ('admin','player');`)
