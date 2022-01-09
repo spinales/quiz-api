@@ -7,6 +7,7 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
+	"github.com/rs/cors"
 	"github.com/spinales/quiz-api/token"
 	"github.com/spinales/quiz-api/util"
 	"gorm.io/gorm"
@@ -50,6 +51,14 @@ func (server *Server) setupRouter() {
 	// through ctx.Done() that the request has timed out and further
 	// processing should be stopped.
 	router.Use(middleware.Timeout(60 * time.Second))
+
+	// router.Use(cors.Handler(cors.Options{
+	// 	AllowedOrigins: []string{"https://*", "http://*"},
+	// 	AllowedMethods: []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+	// 	AllowedHeaders: []string{"Accept", "Authorization", "Content-Type", "X-CSRF-Token"},
+	// }))
+
+	router.Use(cors.AllowAll().Handler)
 
 	router.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Hello World!"))
