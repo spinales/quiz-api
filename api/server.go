@@ -79,6 +79,11 @@ func (server *Server) setupRouter() {
 				r.Put("/", server.UpdateQuestion)
 			})
 		})
+		r.Route("/score", func(r chi.Router) {
+			r.Get("/", server.TopScores)
+			r.Post("/", server.AddNewRecord)
+		})
+
 		// r.Route("/answer", func(r chi.Router) {
 		// 	r.Get("/", server.GetAnswers)
 		// 	r.Post("/", server.AddAnswer)
