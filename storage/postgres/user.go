@@ -9,6 +9,12 @@ type UserService struct {
 	DB *gorm.DB
 }
 
+func (s *UserService) User(id uint) (*models.User, error) {
+	var u models.User
+	s.DB.First(&u, id)
+	return &u, nil
+}
+
 func (s *UserService) UserByUsername(username string) (*models.User, error) {
 	var u models.User
 	s.DB.Where(&models.User{Username: username}).First(&u)
@@ -29,4 +35,16 @@ func (s *UserService) CheckUserOrEmail(username, email string) bool {
 	}
 
 	return false
+}
+
+func (s *UserService) UpdateUser(u *models.User, id uint) (*models.User, error) {
+	u.ID = id
+	s.DB.Save(&u)
+	return u, nil
+}
+
+func (s *UserService) UsersByScore() (*[]models.User, error) {
+	var users []models.User
+	s.DB.Order("score asc").Limit(10).Find(&users)
+	return &users, nil
 }

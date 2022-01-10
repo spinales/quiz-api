@@ -73,7 +73,7 @@ func (server *Server) setupRouter() {
 		r.Route("/question", func(r chi.Router) {
 			r.Get("/", server.GetQuestions)
 			r.Post("/", server.AddQuestion)
-			r.Route("/{id:^[0-9]}", func(r chi.Router) {
+			r.Route("/{id}", func(r chi.Router) {
 				r.Get("/", server.GetQuestion)
 				r.Delete("/", server.DeleteQuestion)
 				r.Put("/", server.UpdateQuestion)
@@ -82,7 +82,7 @@ func (server *Server) setupRouter() {
 		r.Route("/answer", func(r chi.Router) {
 			r.Get("/", server.GetAnswers)
 			r.Post("/", server.AddAnswer)
-			r.Route("/{id:^[0-9]}", func(r chi.Router) {
+			r.Route("/{id}", func(r chi.Router) {
 				r.Get("/", server.GetAnswer)
 				r.Delete("/", server.DeleteAnswer)
 				r.Put("/", server.UpdateAnswer)
