@@ -79,15 +79,15 @@ func (server *Server) setupRouter() {
 				r.Put("/", server.UpdateQuestion)
 			})
 		})
-		r.Route("/answer", func(r chi.Router) {
-			r.Get("/", server.GetAnswers)
-			r.Post("/", server.AddAnswer)
-			r.Route("/{id}", func(r chi.Router) {
-				r.Get("/", server.GetAnswer)
-				r.Delete("/", server.DeleteAnswer)
-				r.Put("/", server.UpdateAnswer)
-			})
-		})
+		// r.Route("/answer", func(r chi.Router) {
+		// 	r.Get("/", server.GetAnswers)
+		// 	r.Post("/", server.AddAnswer)
+		// 	r.Route("/{id}", func(r chi.Router) {
+		// 		r.Get("/", server.GetAnswer)
+		// 		r.Delete("/", server.DeleteAnswer)
+		// 		r.Put("/", server.UpdateAnswer)
+		// 	})
+		// })
 	})
 
 	server.router = router

@@ -1,12 +1,15 @@
 package models
 
-import "gorm.io/gorm"
+import (
+	"github.com/lib/pq"
+	"gorm.io/gorm"
+)
 
 type Question struct {
 	gorm.Model
 	Content  string
 	ImageUrl string
-	Answers  []Answer
+	Answers  pq.StringArray `gorm:"type:text[]"`
 }
 
 type QuestionService interface {

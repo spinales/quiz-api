@@ -12,7 +12,6 @@ type QuestionService struct {
 func (s *QuestionService) GetQuestion(id uint) (*models.Question, error) {
 	var q models.Question
 	s.DB.First(&q, id)
-	s.DB.Where(&models.Answer{QuestionID: q.ID}).Find(&q.Answers)
 	return &q, nil
 }
 

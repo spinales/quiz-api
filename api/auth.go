@@ -82,5 +82,6 @@ func (s *Server) register(w http.ResponseWriter, r *http.Request) {
 		"username":  user.Username,
 		"email":     user.Email,
 		"role":      user.Role,
+		"score":     user.Score,
 	}})
 }
