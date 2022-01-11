@@ -46,3 +46,8 @@ func FakeData(db *gorm.DB) {
 		Answers:  pq.StringArray{"No tendra humo", "Norte", "Sur", "Oeste"},
 	})
 }
+
+func EraseData(DB *gorm.DB) {
+	DB.Migrator().DropTable(&models.User{}, &models.Question{})
+	DB.AutoMigrate(&models.User{}, &models.Question{})
+}

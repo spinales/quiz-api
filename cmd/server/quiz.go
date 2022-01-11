@@ -14,13 +14,17 @@ import (
 )
 
 var (
-	local bool
-	fake  bool
+	local    bool
+	fake     bool
+	reset    bool
+	cleanAll bool
 )
 
 func init() {
 	flag.BoolVar(&local, "local", false, "Run the server in local mode, run without database server using sqlite.")
 	flag.BoolVar(&fake, "fake", false, "Add fake data on dabatase.")
+	flag.BoolVar(&reset, "reset", false, "Reset database to default data.")
+	flag.BoolVar(&cleanAll, "new", false, "Erase all the data, without admin user.")
 	flag.Parse()
 }
 
@@ -47,6 +51,15 @@ func main() {
 	db.AutoMigrate(&models.User{}, &models.Question{})
 
 	if fake {
+		storage.FakeData(db)
+	}
+
+	if reset {
+		storage.EraseData(db)
+	}
+
+	if cleanAll {
+		storage.EraseData(db)
 		storage.FakeData(db)
 	}
 
