@@ -26,10 +26,12 @@ func (s *QuestionService) SaveQuestion(q *models.Question) (*models.Question, er
 	return q, nil
 }
 
-func (s *QuestionService) UpdateQuestion(q *models.Question, id uint) (*models.Question, error) {
+func (s *QuestionService) UpdateQuestion(question *models.Question, id uint) (*models.Question, error) {
+	var q models.Question
 	q.ID = id
-	s.DB.Save(&q)
-	return q, nil
+	// s.DB.Save(&q)
+	s.DB.Model(&q).Updates(question)
+	return question, nil
 }
 
 func (s *QuestionService) DeleteQuestion(id uint) error {
