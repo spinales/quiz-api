@@ -39,12 +39,14 @@ func (s *UserService) CheckUserOrEmail(username, email string) bool {
 
 func (s *UserService) UpdateUser(u *models.User, id uint) (*models.User, error) {
 	u.ID = id
-	s.DB.Save(&u)
+	// s.DB.Save(&u)
+	// s.DB.Model(&models.User{ID: id}).Updates(u)
+	s.DB.Model(&u).Update("score", u.Score)
 	return u, nil
 }
 
 func (s *UserService) UsersByScore() (*[]models.User, error) {
 	var users []models.User
-	s.DB.Order("score asc").Limit(10).Find(&users)
+	s.DB.Order("score desc").Limit(10).Find(&users)
 	return &users, nil
 }
